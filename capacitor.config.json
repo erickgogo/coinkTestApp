@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "coinkTestApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
