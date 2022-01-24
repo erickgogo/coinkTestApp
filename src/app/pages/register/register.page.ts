@@ -29,20 +29,20 @@ export class RegisterPage implements OnInit {
   }
   initForm() {
     this.form = {
-      phoneNumber: '3212911455',
-      verificationCode: '1234'
+      phoneNumber: '',
+      verificationCode: ''
     }
     this.formRegister = this.fb.group({
 
       phoneNumber: ['', Validators.compose([Validators.required])],
       verificationCode: ['', Validators.compose([Validators.required])],
-      documentType: ['1', Validators.compose([Validators.required])],
-      documentNumber: ['1030682581', Validators.compose([Validators.required])],
-      expeditionDocument: ['2020-12-12', Validators.compose([Validators.required])],
-      birthDay: ['2020-12-12', Validators.compose([Validators.required])],
-      gender: ['1', Validators.compose([Validators.required])],
-      email: ['erickgonzalezramos@gmail.com', Validators.compose([Validators.required, Validators.email])],
-      emailConfirm: ['erickgonzalezramos@gmail.com', Validators.compose([Validators.required, Validators.email])],
+      documentType: ['', Validators.compose([Validators.required])],
+      documentNumber: ['', Validators.compose([Validators.required])],
+      expeditionDocument: ['', Validators.compose([Validators.required])],
+      birthDay: ['', Validators.compose([Validators.required])],
+      gender: ['', Validators.compose([Validators.required])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      emailConfirm: ['', Validators.compose([Validators.required, Validators.email])],
       pin: ['', Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4)])],
       pinConfirm: ['', Validators.compose([Validators.required])],
     })
