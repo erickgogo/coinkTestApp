@@ -1,3 +1,8 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet>
+    
+  </ion-router-outlet>
+  <div fxLayoutAlign="center center" style="height: 100vh; width: 100vw; z-index: 500;" *ngIf="loader">
+    <mat-spinner ></mat-spinner>
+  </div>
 </ion-app>

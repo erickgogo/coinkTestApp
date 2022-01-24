@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "Montserrat, Medium";
+    src: url("../../../assets/fonts/static/Montserrat-Medium.ttf")
+}
+.pad{
+    width: 100vw; height: 45vh;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    font-family: 'Montserrat, Medium';
+    font-size: 32px;
+    text-align: center;
+    color: #004B40;
+}
+.key{
+    padding-top: 15px;
+}

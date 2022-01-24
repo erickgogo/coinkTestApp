@@ -1,0 +1,16 @@
+<div fxLayout="row" style="min-width:100%; min-height: 100%;" fxLayoutAlign="space-around center">
+  <div fxFlex *ngFor="let item of steps" fxLayout="row" style="height: 10px;">
+    <div fxFlex="60" style="padding-top: 10px;">
+      <ng-container *ngIf="stepControler > item; else elseTemplate">
+        <ion-icon name="radio-button-on-outline"></ion-icon>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <ion-icon name="radio-button-off-outline"></ion-icon>
+      </ng-template>
+    </div>
+    <div fxFlex="40">
+      <div *ngIf="item < steps.length-1" class="separator"></div>
+    </div>
+
+  </div>
+</div>

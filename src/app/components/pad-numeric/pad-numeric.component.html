@@ -1,0 +1,22 @@
+<div fxLayout="column" class="pad">
+  <div fxFlex="25" fxLayout="row">
+    <div fxFlex="33" class="key" (click)="setValue(1)">1</div>
+    <div fxFlex="33" class="key" (click)="setValue(2)">2</div>
+    <div fxFlex="33" class="key" (click)="setValue(3)">3</div>
+  </div>
+  <div fxFlex="25">
+    <div fxFlex="33" class="key" (click)="setValue(4)">4</div>
+    <div fxFlex="33" class="key" (click)="setValue(5)">5</div>
+    <div fxFlex="33" class="key" (click)="setValue(6)">6</div>
+  </div>
+  <div fxFlex="25">
+    <div fxFlex="33" class="key" (click)="setValue(7)">7</div>
+    <div fxFlex="33" class="key" (click)="setValue(8)">8</div>
+    <div fxFlex="33" class="key" (click)="setValue(9)">9</div>
+  </div>
+  <div fxFlex="25">
+    <div fxFlex="33" (click)="setValue(null)"><ion-icon name="backspace-outline" style="font-size: 50px;"></ion-icon></div>
+    <div fxFlex="33" class="key" (click)="setValue(0)">0</div>
+    <div fxFlex="33" (click)="onComplete()"><ion-icon name="arrow-forward-circle-outline" style="font-size: 50px;"></ion-icon></div>
+  </div>
+</div>

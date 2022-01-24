@@ -1,0 +1,158 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div fxLayout="column" style="height: 100vh;">
+    <div fxFlex="15" fxLayout="row">
+      <div fxFlex="15" fxLayoutAlign="center center" [routerLink]="['/home']">
+        <ion-icon name="chevron-back-outline" class="green" style="font-size: 40px;"></ion-icon>
+      </div>
+      <div fxFlex="85" fxLayoutAlign="space-around center" fxLayout="column">
+        <div fxFlex="50" fxLayoutAlign="center center">
+          <h1 class="dark-green" style="font-size: 16px; padding-top: 25px;">NÚMERO CELULAR</h1>
+        </div>
+        <div fxFlex="50">
+          <div style="width: 100%; height: 10px;">
+            <app-stepper [steps]="3" [stepControler]="steperControler"></app-stepper>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pantalla 1 -->
+    <div fxFlex="80" fxLayoutGap="20px" fxLayoutAlign="start center" style="padding: 20px" fxLayout="column"
+      *ngIf="steperControler==0">
+
+      <div fxLayout="column" fxFlex="20">
+        <div fxLayout="row">
+          <div fxFlex="30">
+            <img src="assets/icon/Oink.png">
+          </div>
+          <div fxFlex="70" fxLayoutAlign="center center">
+            <p class="text-regular">
+              Para comenzar, por favor ingresa tu <strong> número celular </strong>.
+            </p>
+          </div>
+        </div>
+        <br>
+        <div class="separator green" style="width: 90vw;"></div>
+      </div>
+      <div fxFlex="20" fxLayoutAlign="center center">
+        <input type="tel" class="input" placeholder="321123XXXX" [(ngModel)]="form.phoneNumber">
+      </div>
+      <div>
+        <app-pad-numeric [input]="form.phoneNumber" (changes)=change($event) (complete)="completePhoneNumber()">
+        </app-pad-numeric>
+      </div>
+    </div>
+    <!-- Pantalla2 -->
+    <div fxFlex="80" fxLayoutGap="20px" fxLayoutAlign="start center" style="padding: 20px" fxLayout="column"
+      *ngIf="steperControler==1">
+
+      <div fxLayout="column" fxFlex="20">
+        <div fxLayout="row">
+          <div fxFlex="30">
+            <img src="assets/icon/Oink.png">
+          </div>
+          <div fxFlex="70" fxLayoutAlign="center center">
+            <p class="text-regular">
+              Digíta el código que recibiste vía <strong>mensaje de texto</strong> al {{form.phoneNumber}}
+            </p>
+          </div>
+        </div>
+        <br>
+        <div class="separator green" style="width: 90vw;"></div>
+      </div>
+      <div fxFlex="20" fxLayoutAlign="center center">
+        <input type="text" class="input" placeholder="XXXX" [(ngModel)]="form.verificationCode">
+      </div>
+      <div>
+        <app-pad-numeric [input]="form.verificationCode" (changes)=changeVerificationCode($event)
+          (complete)="validateVerificationCode()">
+        </app-pad-numeric>
+      </div>
+    </div>
+    <!-- Pantalla 3 -->
+    <div fxFlex="80" fxLayoutGap="20px" fxLayoutAlign="start center" style="padding: 20px" fxLayout="column"
+      *ngIf="steperControler==2">
+
+      <div fxLayout="column" fxFlex="20">
+        <div fxLayout="row">
+          <div fxFlex="30">
+            <img src="assets/icon/Oink.png">
+          </div>
+          <div fxFlex="70" fxLayoutAlign="center start" fxLayout="column" class="left">
+            <h3 class="dark-green ">¿Cuales son tus datos?</h3>
+            <p class="text-regular">
+              Ahora necesitamos saber algunos datos tuyos
+            </p>
+          </div>
+        </div>
+        <br>
+        <div class="separator green" style="width: 90vw;"></div>
+      </div>
+      <div fxFlex="80" style="overflow-y: scroll;">
+        <form [formGroup]="formRegister">
+          <div fxLayoutAlign="center start" fxLayout="column">
+            <ion-item style="width: 90%;">
+              <ion-label>Tipo de documento</ion-label>
+              <ion-select interface="action-sheet" formControlName="documentType">
+                <ion-select-option value="{{item.id}}" *ngFor="let item of $documentTypes">{{item.description}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item style="width: 90%;">
+              <ion-label position="floating">Número de documento</ion-label>
+              <ion-input formControlName="documentNumber" type="tel"></ion-input>
+              <ion-note slot="error" *ngIf="!formRegister.value.documentNumber && formRegister.controls.documentNumber.touched">Campo requerido</ion-note>
+            </ion-item>
+            <ion-item style="width: 90%;">
+              <ion-label position="stacked">Fecha de expedición del documento</ion-label>
+              <ion-input formControlName="expeditionDocument" type="date"></ion-input>
+              <ion-note slot="error" *ngIf="!formRegister.value.expeditionDocument && formRegister.controls.expeditionDocument.touched">Campo requerido</ion-note>
+              
+            </ion-item>
+            <ion-item style="width: 90%;">
+              <ion-label position="stacked">Fecha de nacimiento</ion-label>
+              <ion-input formControlName="birthDay" type="date"></ion-input>
+              <ion-note slot="error" *ngIf="!formRegister.value.birthDay && formRegister.controls.birthDay.touched">Campo requerido</ion-note>
+            </ion-item>
+            <ion-item style="width: 90%;">
+              <ion-label>Género</ion-label>
+              <ion-select interface="action-sheet" formControlName="gender">
+                <ion-select-option value="{{item.id}}" *ngFor="let item of $genders">{{item.description}}
+                </ion-select-option>
+              </ion-select>
+              <ion-note slot="error" *ngIf="!formRegister.value.documentType && formRegister.controls.documentType.touched">Campo requerido</ion-note>
+            </ion-item>
+            <h3 class="dark-green left" style="font-size: 18px;">Configura tu cuenta</h3>
+            <ion-item style="width: 90%;">
+              <ion-label position="floating">Correo electrónico</ion-label>
+              <ion-input formControlName="email" type="email"></ion-input>
+              <ion-note slot="error" *ngIf="!formRegister.value.email && formRegister.controls.email.touched">Campo requerido</ion-note>
+            </ion-item>
+            <ion-item style="width: 90%;">
+              <ion-label position="floating">Confirmar correo electrónico</ion-label>
+              <ion-input formControlName="emailConfirm" type="email"></ion-input>
+              <ion-note slot="error" *ngIf="formRegister.value.email != formRegister.value.emailConfirm">Este campo no coincide con el correo electrónico</ion-note>
+            </ion-item>
+            <ion-item style="width: 90%;">
+              <ion-label position="floating">PIN de seguridad</ion-label>
+              <ion-input formControlName="pin" type="number" maxlength="4"></ion-input>
+              <ion-note slot="error" *ngIf="!formRegister.value.pin && formRegister.controls.pin.touched">Campo requerido</ion-note>
+            </ion-item>
+            <ion-item style="width: 90%;">
+              <ion-label position="floating">Confirmar PIN de seguridad</ion-label>
+              <ion-input formControlName="pinConfirm" type="number"></ion-input>
+              <ion-note slot="error" *ngIf="formRegister.value.pin != formRegister.value.pinConfirm">Este campo no coincide con el correo electrónico</ion-note>
+            </ion-item>
+            <br>
+            <button class="button greenB" (click)="register()">Registrarse</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

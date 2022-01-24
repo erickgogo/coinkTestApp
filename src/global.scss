@@ -24,3 +24,74 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: "Montserrat, Bold";
+    src: url("../src/assets/fonts/static/Montserrat-Bold.ttf")
+}
+@font-face {
+    font-family: "Montserrat, Light";
+    src: url("../src/assets/fonts/static/Montserrat-Light.ttf")
+}
+@font-face {
+    font-family: "Montserrat, Medium";
+    src: url("../src/assets/fonts/static/Montserrat-Medium.ttf")
+}
+@font-face {
+    font-family: "Montserrat, Regular";
+    src: url("../src/assets/fonts/static/Montserrat-Regular.ttf")
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Montserrat, Bold';
+    padding: 5px;
+}
+
+.green{
+    color: #1EEA00;
+}
+.greenB{
+    background: #1EEA00;
+}
+.dark-green{
+    color: #004B40;
+    font-family:  "Montserrat, Bold";
+}
+.dark-greenB{
+    background: #004B40;
+}
+.white{
+    color: #FFFF;
+}
+.button{
+    font-family: 'Montserrat, Bold';
+    font-size: 16pt;
+    width: 90vw;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 25px;
+}
+.text-regular{
+    font-family: 'Montserrat, Regular';
+}
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+.separator{
+    height: 1px;
+    border: 1px solid;
+}
+.input{
+    width: 88vw;
+    height: 50px;
+    border: none;
+    background: #FAFAFA;
+    border-radius: 10px;
+    font-size: 25px;
+    text-align: center;
+    box-shadow: 0px 2px 15px rgba($color: gray, $alpha: 0.5);
+}
